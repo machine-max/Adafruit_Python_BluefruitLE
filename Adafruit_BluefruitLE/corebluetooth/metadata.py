@@ -1,3 +1,4 @@
+from __future__ import unicode_literals
 # Class that encapsulates access to a list of CoreBluetooth objects that are
 # idenfitied by a NSUUID, like CBPeripherals (devices), CBCharacteristics, and
 # CBDescriptors.
@@ -22,6 +23,7 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
+from builtins import object
 import threading
 
 
@@ -44,7 +46,7 @@ class CoreBluetoothMetadata(object):
     def list(self):
         """Return list of all metadata objects."""
         with self._lock:
-            return self._metadata.values()
+            return list(self._metadata.values())
 
     def get(self, cbobject):
         """Retrieve the metadata associated with the specified CoreBluetooth

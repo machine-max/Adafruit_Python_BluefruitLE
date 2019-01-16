@@ -1,3 +1,4 @@
+from __future__ import unicode_literals
 # Bluetooth LE device information service class.  Provides information about
 # the connected BLE device.
 # Author: Tony DiCola

@@ -1,3 +1,4 @@
+from __future__ import unicode_literals
 # Base classes for BLE GATT services, characteristics, and descriptors.  Each
 # OS supported by the library should inherit from these classes and implement
 # the abstract methods.
@@ -22,12 +23,13 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
+from builtins import object
 import abc
+from future.utils import with_metaclass
 
 
-class GattService(object):
+class GattService(with_metaclass(abc.ABCMeta, object)):
     """Base class for a BLE GATT service."""
-    __metaclass__ = abc.ABCMeta
 
     @abc.abstractproperty
     def uuid(self):
@@ -51,9 +53,8 @@ class GattService(object):
         return None
 
 
-class GattCharacteristic(object):
+class GattCharacteristic(with_metaclass(abc.ABCMeta, object)):
     """Base class for a BLE GATT characteristic."""
-    __metaclass__ = abc.ABCMeta
 
     @abc.abstractproperty
     def uuid(self):
@@ -101,9 +102,8 @@ class GattCharacteristic(object):
         return None
 
 
-class GattDescriptor(object):
+class GattDescriptor(with_metaclass(abc.ABCMeta, object)):
     """Base class for a BLE GATT descriptor."""
-    __metaclass__ = abc.ABCMeta
 
     @abc.abstractproperty
     def uuid(self):

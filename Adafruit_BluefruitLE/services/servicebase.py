@@ -1,3 +1,4 @@
+from __future__ import unicode_literals
 # Bluetooth LE service base class.  Provides functions to simplify and decouple
 # service implementations from specific BLE implementations.
 # Author: Tony DiCola
@@ -21,6 +22,7 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
+from builtins import object
 from ..config import TIMEOUT_SEC
 from ..platform import get_provider
 

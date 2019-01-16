@@ -1,3 +1,4 @@
+from __future__ import unicode_literals
 # Python object to represent the bluez DBus adapter object.  Provides properties
 # and functions to easily interact with the DBus object.
 # Author: Tony DiCola

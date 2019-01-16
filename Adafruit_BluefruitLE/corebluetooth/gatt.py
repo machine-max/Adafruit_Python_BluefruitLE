@@ -1,3 +1,4 @@
+from __future__ import unicode_literals
 # Python objects to represent the CoreBluetooth GATT objects.
 # Author: Tony DiCola
 #

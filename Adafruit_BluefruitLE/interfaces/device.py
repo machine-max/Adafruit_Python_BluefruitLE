@@ -1,3 +1,4 @@
+from __future__ import unicode_literals
 # Base class for a BLE device.  Each OS supported by the library should
 # inherit from this class and implement the abstract methods.
 # Author: Tony DiCola
@@ -21,12 +22,13 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
+from builtins import object
 import abc
+from future.utils import with_metaclass
 
 
-class Device(object):
+class Device(with_metaclass(abc.ABCMeta, object)):
     """Base class for a BLE device."""
-    __metaclass__ = abc.ABCMeta
 
     @abc.abstractmethod
     def connect(self, timeout_sec):

@@ -1,3 +1,4 @@
+from __future__ import unicode_literals
 # Python object to represent the CoreBluetooth device object.
 # Author: Tony DiCola
 #
@@ -20,6 +21,7 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
+from builtins import map
 from past.builtins import map
 import threading
 
@@ -96,7 +98,7 @@ class CoreBluetoothDevice(Device):
         # Advertisement data was received, pull out advertised service UUIDs and
         # name from advertisement data.
         if 'kCBAdvDataServiceUUIDs' in advertised:
-            self._advertised = self._advertised + map(cbuuid_to_uuid, advertised['kCBAdvDataServiceUUIDs'])
+            self._advertised = self._advertised + list(map(cbuuid_to_uuid, advertised['kCBAdvDataServiceUUIDs']))
 
     def _characteristics_discovered(self, service):
         """Called when GATT characteristics have been discovered."""

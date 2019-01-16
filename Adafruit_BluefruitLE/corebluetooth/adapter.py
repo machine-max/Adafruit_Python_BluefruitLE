@@ -1,3 +1,4 @@
+from __future__ import unicode_literals
 # Base class for a BLE network adapter.  Each OS supported by the library should
 # inherit from this class and implement the abstract methods.
 # Author: Tony DiCola

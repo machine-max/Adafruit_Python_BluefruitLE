@@ -1,3 +1,4 @@
+from __future__ import unicode_literals
 # Platform detection logic to pick the right BLE provider for the current
 # platform.
 # Author: Tony DiCola

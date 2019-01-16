@@ -1,3 +1,4 @@
+from __future__ import unicode_literals
 # Python object to represent the bluez DBus device object.  Provides properties
 # and functions to easily interact with the DBus object.
 # Author: Tony DiCola
@@ -21,6 +22,8 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
+from builtins import map
+from builtins import str
 from past.builtins import map
 import threading
 import time
@@ -87,9 +90,9 @@ class BluezDevice(Device):
         """Return a list of GattService objects that have been discovered for
         this device.
         """
-        return map(BluezGattService,
+        return list(map(BluezGattService,
                    get_provider()._get_objects(_SERVICE_INTERFACE,
-                                               self._device.object_path))
+                                               self._device.object_path)))
 
     def discover(self, service_uuids, char_uuids, timeout_sec=TIMEOUT_SEC):
         """Wait up to timeout_sec for the specified services and characteristics
@@ -105,10 +108,10 @@ class BluezDevice(Device):
             # Find actual services discovered for the device.
             actual_services = set(self.advertised)
             # Find actual characteristics discovered for the device.
-            chars = map(BluezGattCharacteristic,
+            chars = list(map(BluezGattCharacteristic,
                         get_provider()._get_objects(_CHARACTERISTIC_INTERFACE,
-                                                    self._device.object_path))
-            actual_chars = set(map(lambda x: x.uuid, chars))
+                                                    self._device.object_path)))
+            actual_chars = set([x.uuid for x in chars])
             # Compare actual discovered UUIDs with expected and return true if at
             # least the expected UUIDs are available.
             if actual_services >= expected_services and actual_chars >= expected_chars:

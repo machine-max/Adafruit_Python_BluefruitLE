@@ -1,3 +1,5 @@
+from __future__ import print_function
+from __future__ import unicode_literals
 # BLE provider implementation using Linux's bluez library over its DBus
 # interface.
 # Author: Tony DiCola
@@ -21,6 +23,7 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
+from builtins import map
 from past.builtins import map
 import sys
 import threading
@@ -155,7 +158,7 @@ class BluezProvider(Provider):
             # Skip devices that aren't connected.
             if not device.is_connected:
                 continue
-            device_uuids = set(map(lambda x: x.uuid, device.list_services()))
+            device_uuids = set([x.uuid for x in device.list_services()])
             if device_uuids >= service_uuids:
                 # Found a device that has at least the requested services, now
                 # disconnect from it.
@@ -163,11 +166,11 @@ class BluezProvider(Provider):
 
     def list_adapters(self):
         """Return a list of BLE adapter objects connected to the system."""
-        return map(BluezAdapter, self._get_objects('org.bluez.Adapter1'))
+        return list(map(BluezAdapter, self._get_objects('org.bluez.Adapter1')))
 
     def list_devices(self):
         """Return a list of BLE devices known to the system."""
-        return map(BluezDevice, self._get_objects('org.bluez.Device1'))
+        return list(map(BluezDevice, self._get_objects('org.bluez.Device1')))
 
     def _get_objects(self, interface, parent_path='/org/bluez'):
         """Return a list of all bluez DBus objects that implement the requested
@@ -179,27 +182,27 @@ class BluezProvider(Provider):
         parent_path = parent_path.lower()
         objects = []
         for opath, interfaces in iteritems(self._bluez.GetManagedObjects()):
-            if interface in interfaces.keys() and opath.lower().startswith(parent_path):
+            if interface in list(interfaces.keys()) and opath.lower().startswith(parent_path):
                 objects.append(self._bus.get_object('org.bluez', opath))
         return objects
 
     def _get_objects_by_path(self, paths):
         """Return a list of all bluez DBus objects from the provided list of paths.
         """
-        return map(lambda x: self._bus.get_object('org.bluez', x), paths)
+        return [self._bus.get_object('org.bluez', x) for x in paths]
 
     def _print_tree(self):
         """Print tree of all bluez objects, useful for debugging."""
         # This is based on the bluez sample code get-managed-objects.py.
         objects = self._bluez.GetManagedObjects()
-        for path in objects.keys():
+        for path in list(objects.keys()):
             print("[ %s ]" % (path))
             interfaces = objects[path]
-            for interface in interfaces.keys():
+            for interface in list(interfaces.keys()):
                 if interface in ["org.freedesktop.DBus.Introspectable",
                             "org.freedesktop.DBus.Properties"]:
                     continue
                 print("    %s" % (interface))
                 properties = interfaces[interface]
-                for key in properties.keys():
+                for key in list(properties.keys()):
                     print("      %s = %s" % (key, properties[key]))

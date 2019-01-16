@@ -1,3 +1,4 @@
+from __future__ import unicode_literals
 # Bluetooth LE UART service class.  Provides an easy to use interface to read
 # and write data from a bluezle device that implements the UART service.
 # Author: Tony DiCola
