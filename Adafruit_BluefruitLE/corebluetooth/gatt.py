@@ -30,8 +30,6 @@ from ..interfaces import GattService, GattCharacteristic, GattDescriptor
 from .objc_helpers import cbuuid_to_uuid
 from .provider import device_list, characteristic_list, descriptor_list
 
-from __future__ import unicode_literals
-
 # Load CoreBluetooth bundle.
 objc.loadBundle("CoreBluetooth", globals(),
     bundle_path=objc.pathForFramework(u'/System/Library/Frameworks/IOBluetooth.framework/Versions/A/Frameworks/CoreBluetooth.framework'))

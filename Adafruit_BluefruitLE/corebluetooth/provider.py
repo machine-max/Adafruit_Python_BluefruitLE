@@ -40,10 +40,6 @@ from .objc_helpers import uuid_to_cbuuid
 from builtins import map
 from builtins import object
 from future.utils import raise_
-from past.builtins import map
-
-from __future__ import unicode_literals
-
 
 # Load CoreBluetooth bundle.
 objc.loadBundle("CoreBluetooth", globals(),

@@ -23,7 +23,6 @@
 import threading
 
 from builtins import map
-from past.builtins import map
 
 from ..config import TIMEOUT_SEC
 from ..interfaces import Device
@@ -32,9 +31,6 @@ from ..platform import get_provider
 from .gatt import CoreBluetoothGattService
 from .objc_helpers import cbuuid_to_uuid, nsuuid_to_uuid
 from .provider import device_list, service_list, characteristic_list, descriptor_list
-
-from __future__ import unicode_literals
-
 
 class CoreBluetoothDevice(Device):
     """CoreBluetooth BLE device."""

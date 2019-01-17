@@ -34,8 +34,6 @@ from builtins import object
 from ..config import TIMEOUT_SEC
 from future.utils import with_metaclass
 
-from __future__ import unicode_literals
-
 class Provider(with_metaclass(abc.ABCMeta, object)):
     """Base class for a BLE provider."""
 

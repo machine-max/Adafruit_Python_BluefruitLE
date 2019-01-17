@@ -30,7 +30,6 @@ import dbus
 
 from builtins import map
 from builtins import str
-from past.builtins import map
 
 from ..config import TIMEOUT_SEC
 from ..interfaces import Device
@@ -38,8 +37,6 @@ from ..platform import get_provider
 
 from .adapter import _INTERFACE as _ADAPTER_INTERFACE
 from .gatt import BluezGattService, BluezGattCharacteristic, _SERVICE_INTERFACE, _CHARACTERISTIC_INTERFACE
-
-from __future__ import unicode_literals
 
 _INTERFACE = 'org.bluez.Device1'
 

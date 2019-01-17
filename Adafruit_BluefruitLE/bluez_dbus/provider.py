@@ -39,10 +39,6 @@ from .adapter import _INTERFACE as _ADAPTER_INTERFACE
 from .device import BluezDevice
 
 from builtins import map
-from past.builtins import map
-
-from __future__ import print_function
-from __future__ import unicode_literals
 
 class BluezProvider(Provider):
     """BLE provider implementation using the bluez DBus interface and GTK main

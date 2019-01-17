@@ -24,8 +24,6 @@
 from builtins import object
 from ..config import TIMEOUT_SEC
 from ..platform import get_provider
-from __future__ import unicode_literals
-
 
 class ServiceBase(object):
     """Base class for Bluetooth LE service classes.  Derived classes should

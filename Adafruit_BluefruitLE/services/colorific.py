@@ -24,8 +24,6 @@ import uuid
 from builtins import chr
 
 from .servicebase import ServiceBase
-from __future__ import unicode_literals
-
 
 # Define service and characteristic UUIDs.
 COLOR_SERVICE_UUID = uuid.UUID('00001802-0000-1000-8000-00805f9b34fb')

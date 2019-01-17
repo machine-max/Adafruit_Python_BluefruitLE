@@ -25,9 +25,6 @@ import uuid
 
 from .servicebase import ServiceBase
 
-from __future__ import unicode_literals
-
-
 # Define service and characteristic UUIDs.  These UUIDs are taken from the spec:
 # https://developer.bluetooth.org/gatt/services/Pages/ServiceViewer.aspx?u=org.bluetooth.service.device_information.xml
 DIS_SERVICE_UUID        = uuid.UUID('0000180A-0000-1000-8000-00805F9B34FB')

@@ -28,9 +28,6 @@ import dbus
 from ..config import TIMEOUT_SEC
 from ..interfaces import Adapter
 
-from __future__ import unicode_literals
-
-
 _INTERFACE = 'org.bluez.Adapter1'
 
 

@@ -27,14 +27,9 @@ import dbus
 
 from builtins import str
 from builtins import map
-from past.builtins import map
-
 
 from ..interfaces import GattService, GattCharacteristic, GattDescriptor
 from ..platform import get_provider
-
-from __future__ import unicode_literals
-
 
 _SERVICE_INTERFACE        = 'org.bluez.GattService1'
 _CHARACTERISTIC_INTERFACE = 'org.bluez.GattCharacteristic1'

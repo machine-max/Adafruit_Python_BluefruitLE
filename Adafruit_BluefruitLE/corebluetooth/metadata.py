@@ -25,8 +25,6 @@
 import threading
 from builtins import object
 
-from __future__ import unicode_literals
-
 class CoreBluetoothMetadata(object):
     """Class that encapsulates access to metadata associated with CoreBluetooth
     objects like  CBPeripherals (devices), CBCharacteristics, and CBDescriptors.

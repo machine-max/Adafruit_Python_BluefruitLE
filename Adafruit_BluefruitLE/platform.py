@@ -23,16 +23,13 @@
 # SOFTWARE.
 import sys
 
-from __future__ import unicode_literals
-
-
 # Keep a single global instance of the BLE provider.
 _provider = None
 
 
 def get_provider():
     """Return an instance of the BLE provider for the current platform."""
-        global _provider
+    global _provider
     # Set the provider based on the current platform.
     if _provider is None:
         if sys.platform.startswith('linux'):
@@ -46,4 +43,4 @@ def get_provider():
         else:
             # Unsupported platform
             raise RuntimeError('Sorry the {0} platform is not supported by the BLE library!'.format(sys.platform))
-return _provider
+    return _provider

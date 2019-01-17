@@ -26,9 +26,6 @@ import objc
 from builtins import str
 from binascii import hexlify
 
-from __future__ import unicode_literals
-
-
 # Load CoreBluetooth bundle.
 objc.loadBundle("CoreBluetooth", globals(),
     bundle_path=objc.pathForFramework(u'/System/Library/Frameworks/IOBluetooth.framework/Versions/A/Frameworks/CoreBluetooth.framework'))
