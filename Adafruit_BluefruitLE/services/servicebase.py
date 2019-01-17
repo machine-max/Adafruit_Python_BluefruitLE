@@ -1,4 +1,3 @@
-from __future__ import unicode_literals
 # Bluetooth LE service base class.  Provides functions to simplify and decouple
 # service implementations from specific BLE implementations.
 # Author: Tony DiCola
@@ -25,6 +24,7 @@ from __future__ import unicode_literals
 from builtins import object
 from ..config import TIMEOUT_SEC
 from ..platform import get_provider
+from __future__ import unicode_literals
 
 
 class ServiceBase(object):

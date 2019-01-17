@@ -1,4 +1,3 @@
-from __future__ import unicode_literals
 # Python objects to represent the bluez DBus GATT objects.  Provides properties
 # and functions to easily interact with the DBus objects.
 # Author: Tony DiCola
@@ -22,15 +21,19 @@ from __future__ import unicode_literals
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-from builtins import str
-from builtins import map
-from past.builtins import map
 import uuid
 
 import dbus
 
+from builtins import str
+from builtins import map
+from past.builtins import map
+
+
 from ..interfaces import GattService, GattCharacteristic, GattDescriptor
 from ..platform import get_provider
+
+from __future__ import unicode_literals
 
 
 _SERVICE_INTERFACE        = 'org.bluez.GattService1'

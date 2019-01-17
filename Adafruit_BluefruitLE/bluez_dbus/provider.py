@@ -1,5 +1,3 @@
-from __future__ import print_function
-from __future__ import unicode_literals
 # BLE provider implementation using Linux's bluez library over its DBus
 # interface.
 # Author: Tony DiCola
@@ -23,8 +21,7 @@ from __future__ import unicode_literals
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-from builtins import map
-from past.builtins import map
+
 import sys
 import threading
 import time
@@ -41,6 +38,11 @@ from .adapter import BluezAdapter
 from .adapter import _INTERFACE as _ADAPTER_INTERFACE
 from .device import BluezDevice
 
+from builtins import map
+from past.builtins import map
+
+from __future__ import print_function
+from __future__ import unicode_literals
 
 class BluezProvider(Provider):
     """BLE provider implementation using the bluez DBus interface and GTK main
@@ -182,7 +184,7 @@ class BluezProvider(Provider):
         parent_path = parent_path.lower()
         objects = []
         for opath, interfaces in iteritems(self._bluez.GetManagedObjects()):
-            if interface in list(interfaces.keys()) and opath.lower().startswith(parent_path):
+            if interface in interfaces.keys() and opath.lower().startswith(parent_path):
                 objects.append(self._bus.get_object('org.bluez', opath))
         return objects
 
@@ -195,7 +197,7 @@ class BluezProvider(Provider):
         """Print tree of all bluez objects, useful for debugging."""
         # This is based on the bluez sample code get-managed-objects.py.
         objects = self._bluez.GetManagedObjects()
-        for path in list(objects.keys()):
+        for path in objects.keys():
             print("[ %s ]" % (path))
             interfaces = objects[path]
             for interface in list(interfaces.keys()):

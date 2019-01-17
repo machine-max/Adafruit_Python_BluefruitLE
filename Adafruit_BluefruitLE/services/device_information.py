@@ -1,4 +1,3 @@
-from __future__ import unicode_literals
 # Bluetooth LE device information service class.  Provides information about
 # the connected BLE device.
 # Author: Tony DiCola
@@ -25,6 +24,8 @@ from __future__ import unicode_literals
 import uuid
 
 from .servicebase import ServiceBase
+
+from __future__ import unicode_literals
 
 
 # Define service and characteristic UUIDs.  These UUIDs are taken from the spec:

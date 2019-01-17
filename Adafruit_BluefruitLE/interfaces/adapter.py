@@ -1,4 +1,3 @@
-from __future__ import unicode_literals
 # Base class for a BLE network adapter.  Each OS supported by the library should
 # inherit from this class and implement the abstract methods.
 # Author: Tony DiCola
@@ -22,9 +21,11 @@ from __future__ import unicode_literals
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-from builtins import object
 import abc
+from builtins import object
 from future.utils import with_metaclass
+
+from __future__ import unicode_literals
 
 
 class Adapter(with_metaclass(abc.ABCMeta, object)):

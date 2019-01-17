@@ -1,4 +1,3 @@
-from __future__ import unicode_literals
 # Python object to represent the CoreBluetooth device object.
 # Author: Tony DiCola
 #
@@ -21,9 +20,10 @@ from __future__ import unicode_literals
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
+import threading
+
 from builtins import map
 from past.builtins import map
-import threading
 
 from ..config import TIMEOUT_SEC
 from ..interfaces import Device
@@ -32,6 +32,8 @@ from ..platform import get_provider
 from .gatt import CoreBluetoothGattService
 from .objc_helpers import cbuuid_to_uuid, nsuuid_to_uuid
 from .provider import device_list, service_list, characteristic_list, descriptor_list
+
+from __future__ import unicode_literals
 
 
 class CoreBluetoothDevice(Device):

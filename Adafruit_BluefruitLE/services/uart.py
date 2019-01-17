@@ -1,4 +1,3 @@
-from __future__ import unicode_literals
 # Bluetooth LE UART service class.  Provides an easy to use interface to read
 # and write data from a bluezle device that implements the UART service.
 # Author: Tony DiCola
@@ -27,6 +26,7 @@ import uuid
 
 from .servicebase import ServiceBase
 
+from __future__ import unicode_literals
 
 # Define service and characteristic UUIDs.
 UART_SERVICE_UUID = uuid.UUID('6E400001-B5A3-F393-E0A9-E50E24DCCA9E')

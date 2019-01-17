@@ -1,4 +1,3 @@
-from __future__ import unicode_literals
 # BLE provider implementation using Mac OSX's CoreBluetooth library.
 # Author: Tony DiCola
 #
@@ -21,12 +20,9 @@ from __future__ import unicode_literals
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-from builtins import map
-from builtins import object
-from future.utils import raise_
+
 import logging
 import os
-from past.builtins import map
 import sys
 import subprocess
 import threading
@@ -40,6 +36,13 @@ from ..platform import get_provider
 
 from .metadata import CoreBluetoothMetadata
 from .objc_helpers import uuid_to_cbuuid
+
+from builtins import map
+from builtins import object
+from future.utils import raise_
+from past.builtins import map
+
+from __future__ import unicode_literals
 
 
 # Load CoreBluetooth bundle.

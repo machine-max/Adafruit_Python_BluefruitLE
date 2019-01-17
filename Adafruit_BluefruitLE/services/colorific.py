@@ -1,4 +1,3 @@
-from __future__ import unicode_literals
 # Smart Bulb Colorific! service class.  Provides control of a BLE RGB light bulb.
 # Author: Tony DiCola
 #
@@ -21,10 +20,11 @@ from __future__ import unicode_literals
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-from builtins import chr
 import uuid
+from builtins import chr
 
 from .servicebase import ServiceBase
+from __future__ import unicode_literals
 
 
 # Define service and characteristic UUIDs.

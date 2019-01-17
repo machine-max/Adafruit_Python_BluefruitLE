@@ -1,4 +1,3 @@
-from __future__ import unicode_literals
 # Base class for a BLE provider.  Each OS supported by the library should
 # inherit from this class and implement the abstract methods, then update the
 # platform.py code to detect when the platform is present and use the
@@ -28,13 +27,14 @@ from __future__ import unicode_literals
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-from builtins import object
 import abc
 import time
+from builtins import object
 
 from ..config import TIMEOUT_SEC
 from future.utils import with_metaclass
 
+from __future__ import unicode_literals
 
 class Provider(with_metaclass(abc.ABCMeta, object)):
     """Base class for a BLE provider."""
