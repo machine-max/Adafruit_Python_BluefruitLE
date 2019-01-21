@@ -21,10 +21,10 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 import uuid
-from binascii import hexlify
-
 import objc
 
+from builtins import str
+from binascii import hexlify
 
 # Load CoreBluetooth bundle.
 objc.loadBundle("CoreBluetooth", globals(),

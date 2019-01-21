@@ -20,8 +20,9 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-from past.builtins import map
 import threading
+
+from builtins import map
 
 from ..config import TIMEOUT_SEC
 from ..interfaces import Device
@@ -30,7 +31,6 @@ from ..platform import get_provider
 from .gatt import CoreBluetoothGattService
 from .objc_helpers import cbuuid_to_uuid, nsuuid_to_uuid
 from .provider import device_list, service_list, characteristic_list, descriptor_list
-
 
 class CoreBluetoothDevice(Device):
     """CoreBluetooth BLE device."""
@@ -96,7 +96,7 @@ class CoreBluetoothDevice(Device):
         # Advertisement data was received, pull out advertised service UUIDs and
         # name from advertisement data.
         if 'kCBAdvDataServiceUUIDs' in advertised:
-            self._advertised = self._advertised + map(cbuuid_to_uuid, advertised['kCBAdvDataServiceUUIDs'])
+            self._advertised = self._advertised + list(map(cbuuid_to_uuid, advertised['kCBAdvDataServiceUUIDs']))
 
     def _characteristics_discovered(self, service):
         """Called when GATT characteristics have been discovered."""

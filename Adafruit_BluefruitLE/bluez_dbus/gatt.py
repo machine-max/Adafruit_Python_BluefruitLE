@@ -21,14 +21,15 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-from past.builtins import map
 import uuid
 
 import dbus
 
+from builtins import str
+from builtins import map
+
 from ..interfaces import GattService, GattCharacteristic, GattDescriptor
 from ..platform import get_provider
-
 
 _SERVICE_INTERFACE        = 'org.bluez.GattService1'
 _CHARACTERISTIC_INTERFACE = 'org.bluez.GattCharacteristic1'
@@ -54,8 +55,8 @@ class BluezGattService(GattService):
         service.
         """
         paths = self._props.Get(_SERVICE_INTERFACE, 'Characteristics')
-        return map(BluezGattCharacteristic,
-                   get_provider()._get_objects_by_path(paths))
+        return list(map(BluezGattCharacteristic,
+                   get_provider()._get_objects_by_path(paths)))
 
 
 class BluezGattCharacteristic(GattCharacteristic):
@@ -113,8 +114,8 @@ class BluezGattCharacteristic(GattCharacteristic):
         characteristic.
         """
         paths = self._props.Get(_CHARACTERISTIC_INTERFACE, 'Descriptors')
-        return map(BluezGattDescriptor,
-                   get_provider()._get_objects_by_path(paths))
+        return list(map(BluezGattDescriptor,
+                   get_provider()._get_objects_by_path(paths)))
 
 
 class BluezGattDescriptor(GattDescriptor):

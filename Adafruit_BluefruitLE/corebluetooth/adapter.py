@@ -31,7 +31,6 @@ from ..config import TIMEOUT_SEC
 from ..interfaces import Adapter
 from ..platform import get_provider
 
-
 # Load IOBluetooth functions for controlling bluetooth power state.
 objc.loadBundleFunctions(
     objc.loadBundle("IOBluetooth", globals(), bundle_path=objc.pathForFramework(u'/System/Library/Frameworks/IOBluetooth.framework')),

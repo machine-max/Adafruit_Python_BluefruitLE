@@ -23,11 +23,11 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 import abc
+from builtins import object
+from future.utils import with_metaclass
 
-
-class GattService(object):
+class GattService(with_metaclass(abc.ABCMeta, object)):
     """Base class for a BLE GATT service."""
-    __metaclass__ = abc.ABCMeta
 
     @abc.abstractproperty
     def uuid(self):
@@ -51,9 +51,8 @@ class GattService(object):
         return None
 
 
-class GattCharacteristic(object):
+class GattCharacteristic(with_metaclass(abc.ABCMeta, object)):
     """Base class for a BLE GATT characteristic."""
-    __metaclass__ = abc.ABCMeta
 
     @abc.abstractproperty
     def uuid(self):
@@ -101,9 +100,8 @@ class GattCharacteristic(object):
         return None
 
 
-class GattDescriptor(object):
+class GattDescriptor(with_metaclass(abc.ABCMeta, object)):
     """Base class for a BLE GATT descriptor."""
-    __metaclass__ = abc.ABCMeta
 
     @abc.abstractproperty
     def uuid(self):

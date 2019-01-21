@@ -21,9 +21,9 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 import uuid
+from builtins import chr
 
 from .servicebase import ServiceBase
-
 
 # Define service and characteristic UUIDs.
 COLOR_SERVICE_UUID = uuid.UUID('00001802-0000-1000-8000-00805f9b34fb')

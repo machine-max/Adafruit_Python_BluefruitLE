@@ -23,7 +23,6 @@
 # SOFTWARE.
 import sys
 
-
 # Keep a single global instance of the BLE provider.
 _provider = None
 

@@ -22,11 +22,11 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 import abc
+from builtins import object
+from future.utils import with_metaclass
 
-
-class Device(object):
+class Device(with_metaclass(abc.ABCMeta, object)):
     """Base class for a BLE device."""
-    __metaclass__ = abc.ABCMeta
 
     @abc.abstractmethod
     def connect(self, timeout_sec):

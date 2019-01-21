@@ -23,7 +23,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 import threading
-
+from builtins import object
 
 class CoreBluetoothMetadata(object):
     """Class that encapsulates access to metadata associated with CoreBluetooth
@@ -44,7 +44,7 @@ class CoreBluetoothMetadata(object):
     def list(self):
         """Return list of all metadata objects."""
         with self._lock:
-            return self._metadata.values()
+            return list(self._metadata.values())
 
     def get(self, cbobject):
         """Retrieve the metadata associated with the specified CoreBluetooth

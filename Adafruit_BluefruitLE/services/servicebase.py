@@ -21,9 +21,9 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
+from builtins import object
 from ..config import TIMEOUT_SEC
 from ..platform import get_provider
-
 
 class ServiceBase(object):
     """Base class for Bluetooth LE service classes.  Derived classes should

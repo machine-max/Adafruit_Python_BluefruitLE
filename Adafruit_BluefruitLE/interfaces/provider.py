@@ -29,13 +29,13 @@
 # SOFTWARE.
 import abc
 import time
+from builtins import object
 
 from ..config import TIMEOUT_SEC
+from future.utils import with_metaclass
 
-
-class Provider(object):
+class Provider(with_metaclass(abc.ABCMeta, object)):
     """Base class for a BLE provider."""
-    __metaclass__ = abc.ABCMeta
 
     @abc.abstractmethod
     def initialize(self):
