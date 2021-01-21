@@ -41,6 +41,7 @@ class CoreBluetoothDevice(Device):
         """
         self._peripheral = peripheral
         self._advertised = []
+        self._advertised_name = None
         self._discovered_services = set()
         self._char_on_changed = {}
         self._rssi = None
@@ -97,6 +98,12 @@ class CoreBluetoothDevice(Device):
         # name from advertisement data.
         if 'kCBAdvDataServiceUUIDs' in advertised:
             self._advertised = self._advertised + list(map(cbuuid_to_uuid, advertised['kCBAdvDataServiceUUIDs']))
+        # For MM sensors on MacOS BigSur we find two "advertised" entries for each device
+        # Firstly one with the correct name (e.g. "MM-4CBC983122E8D326") and then one with the name "bluenrg!"
+        # We store only the correct one in a new '_advertised_name' variable to fix this problem
+        if 'kCBAdvDataLocalName' in advertised:
+            if "bluenrg!" not in advertised['kCBAdvDataLocalName']:
+                self._advertised_name = advertised['kCBAdvDataLocalName']
 
     def _characteristics_discovered(self, service):
         """Called when GATT characteristics have been discovered."""
@@ -176,6 +183,11 @@ class CoreBluetoothDevice(Device):
     def name(self):
         """Return the name of this device."""
         return self._peripheral.name()
+
+    @property
+    def advertised_name(self):
+        """Return the advertised name of this device."""
+        return self._advertised_name
 
     @property
     def is_connected(self):
